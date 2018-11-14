@@ -18,15 +18,6 @@ namespace Mobisskey.ViewModels
     {
         public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            if (Misskey.I.Credentials != null)
-            {
-                var c = Misskey.I.Credentials.FirstOrDefault();
-                if (c != null)
-                {
-                    Misskey.I.SwitchClient(c);
-                    NavigationService.NavigateAsync("/MainPage/NavigationPage/MainDetailPage");
-                }
-            }
         }
 
         private string url;

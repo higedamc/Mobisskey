@@ -40,7 +40,7 @@ namespace Mobisskey.ViewModels
         public NoteViewModel(Note note)
         {
             model = note;
-            UserName = model.User.Username;
+            UserName = "@" + model.User.Username + (model.User.Host != null ? "@" + model.User.Host : "");
             // 表示名未指定のときはnullらしい
             ScreenName = model.User.Name ?? model.User.Username;
             Icon = ImageSource.FromUri(new Uri(note.User.AvatarUrl));

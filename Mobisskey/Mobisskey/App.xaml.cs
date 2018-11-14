@@ -4,6 +4,8 @@ using Mobisskey.ViewModels;
 using Mobisskey.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Mobisskey.Models;
+using System.Linq;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Mobisskey
@@ -23,7 +25,18 @@ namespace Mobisskey
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("/MainPage/NavigationPage/LoginPage");
+            if (Misskey.I.Credentials != null)
+            {
+                var c = Misskey.I.Credentials.FirstOrDefault();
+                if (c != null)
+                {
+                    Misskey.I.SwitchClient(c);
+                    await NavigationService.NavigateAsync("/MainPage/NavigationPage/MainDetailPage").ConfigureAwait(false);
+                    return;
+                }
+            }
+
+            await NavigationService.NavigateAsync("/NavigationPage/LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

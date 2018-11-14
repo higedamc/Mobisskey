@@ -11,11 +11,14 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal" Padding="24">
-                        <Image Source="{Binding Icon}" x:Name="image" WidthRequest="64" HeightRequest="64"/>
+                    <StackLayout Orientation="Horizontal" Padding="8">
+                        <Image Source="{Binding Icon}" x:Name="image" WidthRequest="64" HeightRequest="64" Margin="0,0,16,0"/>
                         <StackLayout>
-                            <Label Text="{Binding ScreenName}" FontSize="15"/>
-                            <Label Text="{Binding Text}" FontSize="13"/>
+                            <StackLayout Margin="0,0,0,4" Orientation="Horizontal">
+                                <Label Text="{Binding ScreenName}" FontSize="15" TextColor="Black"/>
+                                <Label Text="{Binding UserName}" FontSize="12" TextColor="Gray"/>
+                            </StackLayout>
+                            <Label Text="{Binding Text}" FontSize="13" TextColor="Black"/>
                         </StackLayout>
                     </StackLayout>
                 </ViewCell>
