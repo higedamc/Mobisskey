@@ -9,6 +9,9 @@ using Prism.Services;
 using System.Collections.ObjectModel;
 using Mobisskey.Models;
 using Prism.Mvvm;
+using Disboard.Misskey.Models.Streaming;
+using System.Reactive.Linq;
+using System.Reactive.Concurrency;
 
 namespace Mobisskey.ViewModels
 {
@@ -45,9 +48,77 @@ namespace Mobisskey.ViewModels
 
     public class HomeTimelineViewModel : NotesPageViewModel
     {
+        public HomeTimelineViewModel() : base()
+        {
+            //Misskey.I.Client.Streaming
+                   //.HomeTimelineAsObservable()
+                   //.OfType<NoteMessage>()
+                   //.SubscribeOn(ThreadPoolScheduler.Instance)
+                   //.Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
+        }
+
         internal override async Task OnRefreshAsync()
         {
             var notes = await Misskey.I.Client.Notes.TimelineAsync();
+            Notes.Clear();
+            notes.ForEach(n => Notes.Add(new NoteViewModel(n)));
+        }
+    }
+
+    public class LocalTimelineViewModel : NotesPageViewModel
+    {
+        public LocalTimelineViewModel() : base()
+        {
+            //Misskey.I.Client.Streaming
+                   //.LocalTimelineAsObservable()
+                   //.OfType<NoteMessage>()
+                   //.SubscribeOn(ThreadPoolScheduler.Instance)
+                   //.Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
+        }
+
+        internal override async Task OnRefreshAsync()
+        {
+            var notes = await Misskey.I.Client.Notes.LocalTimelineAsync();
+            Notes.Clear();
+            notes.ForEach(n => Notes.Add(new NoteViewModel(n)));
+        }
+    }
+
+    public class GlobalTimelineViewmodel : NotesPageViewModel
+    {
+        public GlobalTimelineViewmodel() : base()
+        {
+            //Misskey.I.Client.Streaming
+                   //.GlobalTimelineAsObservable()
+                   //.OfType<NoteMessage>()
+                   //.SubscribeOn(ThreadPoolScheduler.Instance)
+                   //.Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
+        }
+
+        internal override async Task OnRefreshAsync()
+        {
+            var notes = await Misskey.I.Client.Notes.GlobalTimelineAsync();
+            Notes.Clear();
+            notes.ForEach(n => Notes.Add(new NoteViewModel(n)));
+        }
+    }
+
+    public class SocialTimelineViewModel : NotesPageViewModel
+    {
+        public SocialTimelineViewModel() : base()
+        {
+            //// Local + Home
+            //Misskey.I.Client.Streaming
+                   //.LocalTimelineAsObservable()
+                   //.Merge(Misskey.I.Client.Streaming.HomeTimelineAsObservable())
+                   //.OfType<NoteMessage>()
+                   //.SubscribeOn(ThreadPoolScheduler.Instance)
+                   //.Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
+        }
+
+        internal override async Task OnRefreshAsync()
+        {
+            var notes = await Misskey.I.Client.Notes.HybridTimelineAsync();
             Notes.Clear();
             notes.ForEach(n => Notes.Add(new NoteViewModel(n)));
         }

@@ -15,14 +15,17 @@ namespace Mobisskey.Views
             Children.Add(new NotesPage
             {
                 Title = "ローカル",
+                BindingContext = new LocalTimelineViewModel(),
             });
             Children.Add(new NotesPage
             {
                 Title = "ソーシャル",
+                BindingContext = new SocialTimelineViewModel(),
             });
             Children.Add(new NotesPage
             {
                 Title = "グローバル",
+                BindingContext = new GlobalTimelineViewmodel(),
             });
         }
 
