@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobisskey.Views.LoginPage" Title="ねそ"
+             NavigationPage.HasNavigationBar="false"
+             IsEnabled="{Binding IsEnabled}">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="32,32">
+        <Label HorizontalTextAlignment="Center" Text="Mobisskey" FontSize="{OnPlatform iOS=64, Android=60}" FontAttributes="Bold" TextColor="#31A1BC"/>
+        <Label Text="Simple &amp; Useful Client for Misskey" HorizontalTextAlignment="Center"/>
+        <StackLayout IsVisible="{Binding IsLoginMode}">
+            <Label HorizontalTextAlignment="Center" TextColor="Red" Text="{Binding Error}"/>
+            <StackLayout Orientation="Horizontal" Margin="0, 32">
+                <Entry Placeholder="Misskey URL" Margin="0,0,16,0" Text="{Binding Url, Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
+                <Button Text="ログイン" BackgroundColor="Transparent" Command="{Binding Login}" TextColor="#31A1BC"/>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout IsVisible="{Binding HaveToOpenUrl}">
+            <Label HorizontalTextAlignment="Center">
+                Misskey 上で認証を行う必要があります。ボタンをクリックして、ブラウザー上で認証を済ませたあと、アプリにもう一度戻ってください。
+            </Label>
+            <Button Text="ブラウザーを開く" Command="{Binding OpenUrl}" TextColor="#31A1BC"/>
+        </StackLayout>
+        <StackLayout IsVisible="{Binding IsPending}">
+            <Button Text="認証が終わりました" Command="{Binding UserKey}" TextColor="#31A1BC"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

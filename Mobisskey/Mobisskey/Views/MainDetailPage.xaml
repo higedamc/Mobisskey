@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bb:BottomBarPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             xmlns:bb="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
+             xmlns:v="clr-namespace:Mobisskey.Views;assembly=Mobisskey"
+             NavigationPage.HasNavigationBar="false"
+             
+             x:Class="Mobisskey.Views.MainDetailPage">
+    <bb:BottomBarPage.Children>
+        <NavigationPage Title="タイムライン" Icon="s_home.png">
+            <x:Arguments>
+                <v:TimelinePage/>
+            </x:Arguments>
+        </NavigationPage>
+        <ContentPage Title="通知" Icon="s_notify.png"/>
+        <ContentPage Title="メッセージ" Icon="s_email.png"/>
+        <ContentPage Title="設定" Icon="s_setting.png"/>
+    </bb:BottomBarPage.Children>
+</bb:BottomBarPage>

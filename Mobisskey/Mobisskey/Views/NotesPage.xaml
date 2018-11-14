@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="{Binding Title}"
+             x:Class="Mobisskey.Views.NotesPage">
+    <ListView ItemsSource="{Binding Notes}" 
+              RefreshCommand="{Binding RefreshCommand}"
+              IsPullToRefreshEnabled="true"
+              HasUnevenRows="true"
+              IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Padding="24">
+                        <Image Source="{Binding Icon}" x:Name="image" WidthRequest="64" HeightRequest="64"/>
+                        <StackLayout>
+                            <Label Text="{Binding ScreenName}" FontSize="15"/>
+                            <Label Text="{Binding Text}" FontSize="13"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
