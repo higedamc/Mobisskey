@@ -50,11 +50,10 @@ namespace Mobisskey.ViewModels
     {
         public HomeTimelineViewModel() : base()
         {
-            //Misskey.I.Client.Streaming
-                   //.HomeTimelineAsObservable()
-                   //.OfType<NoteMessage>()
-                   //.SubscribeOn(ThreadPoolScheduler.Instance)
-                   //.Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
+            Misskey.I.Client.Streaming
+                   .HomeTimelineAsObservable()
+                   .OfType<NoteMessage>()
+                   .Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
         }
 
         internal override async Task OnRefreshAsync()
@@ -69,11 +68,10 @@ namespace Mobisskey.ViewModels
     {
         public LocalTimelineViewModel() : base()
         {
-            //Misskey.I.Client.Streaming
-                   //.LocalTimelineAsObservable()
-                   //.OfType<NoteMessage>()
-                   //.SubscribeOn(ThreadPoolScheduler.Instance)
-                   //.Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
+            Misskey.I.Client.Streaming
+                   .LocalTimelineAsObservable()
+                   .OfType<NoteMessage>()
+                   .Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
         }
 
         internal override async Task OnRefreshAsync()
@@ -88,11 +86,10 @@ namespace Mobisskey.ViewModels
     {
         public GlobalTimelineViewmodel() : base()
         {
-            //Misskey.I.Client.Streaming
-                   //.GlobalTimelineAsObservable()
-                   //.OfType<NoteMessage>()
-                   //.SubscribeOn(ThreadPoolScheduler.Instance)
-                   //.Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
+            Misskey.I.Client.Streaming
+                   .GlobalTimelineAsObservable()
+                   .OfType<NoteMessage>()
+                   .Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
         }
 
         internal override async Task OnRefreshAsync()
@@ -108,12 +105,12 @@ namespace Mobisskey.ViewModels
         public SocialTimelineViewModel() : base()
         {
             //// Local + Home
-            //Misskey.I.Client.Streaming
-                   //.LocalTimelineAsObservable()
-                   //.Merge(Misskey.I.Client.Streaming.HomeTimelineAsObservable())
-                   //.OfType<NoteMessage>()
-                   //.SubscribeOn(ThreadPoolScheduler.Instance)
-                   //.Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
+            Misskey.I.Client.Streaming
+                   .LocalTimelineAsObservable()
+                   .Merge(Misskey.I.Client.Streaming.HomeTimelineAsObservable())
+                   .OfType<NoteMessage>()
+                   .DistinctUntilChanged((n) => n.Id)
+                   .Subscribe(n => Notes.Insert(0, new NoteViewModel(n)));
         }
 
         internal override async Task OnRefreshAsync()
