@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Mobisskey.Models;
 using System.Linq;
+using Prism.Logging;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Mobisskey
@@ -37,6 +38,12 @@ namespace Mobisskey
             }
 
             await NavigationService.NavigateAsync("/NavigationPage/LoginPage");
+        }
+
+        protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
+        {
+            base.RegisterRequiredTypes(containerRegistry);
+            containerRegistry.RegisterSingleton<ILoggerFacade, DebugLogger>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
