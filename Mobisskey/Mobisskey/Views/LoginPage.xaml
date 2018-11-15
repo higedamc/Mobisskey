@@ -8,7 +8,7 @@
         <StackLayout IsVisible="{Binding IsLoginMode}">
             <Label HorizontalTextAlignment="Center" TextColor="Red" Text="{Binding Error}"/>
             <StackLayout Orientation="Horizontal" Margin="0, 32">
-                <Entry Placeholder="Misskey URL" Margin="0,0,16,0" Text="{Binding Url, Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
+                <Entry Placeholder="Misskey URL" Keyboard="Url" IsTextPredictionEnabled="false" IsSpellCheckEnabled="false" Margin="0,0,16,0" Text="{Binding Url, Mode=TwoWay}" HorizontalOptions="FillAndExpand"/>
                 <Button Text="ログイン" BackgroundColor="Transparent" Command="{Binding Login}" TextColor="#31A1BC"/>
             </StackLayout>
         </StackLayout>
