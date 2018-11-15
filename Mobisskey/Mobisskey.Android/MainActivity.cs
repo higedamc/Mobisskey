@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Prism;
 using Prism.Ioc;
+using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace Mobisskey.Droid
 {
@@ -18,6 +19,8 @@ namespace Mobisskey.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App(new AndroidInitializer()));
+            App.Current.On<Xamarin.Forms.PlatformConfiguration.Android>()
+            .UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
         }
     }
 
