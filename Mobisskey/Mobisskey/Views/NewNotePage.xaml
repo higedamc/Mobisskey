@@ -3,5 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="{Binding Title}"
              x:Class="Mobisskey.Views.NewNotePage">
+    <FlexLayout Direction="Column">
+        <Entry x:Name="cw" IsVisible="{Binding UseCW}" Placeholder="内容への注釈(オプション)" FontSize="16" Margin="12" Text="{Binding CW, Mode=TwoWay}"/>
+        <Editor Placeholder="何について話す？" FontSize="16" Margin="12" FlexLayout.Grow="1" Text="{Binding Text, Mode=TwoWay}"/>
+
+            <FlexLayout HeightRequest="64" BackgroundColor="#fafafa" Direction="Row"
+                        JustifyContent="Start" AlignItems="Center">
+                <FlexLayout.Resources>
+                    <ResourceDictionary>
+                        <Style TargetType="Button">
+                            <Setter Property="BackgroundColor" Value="Transparent"/>
+                            <Setter Property="TextColor" Value="Black"/>
+                            <Setter Property="Padding" Value="0"/>
+                        </Style>
+                    </ResourceDictionary>
+                </FlexLayout.Resources>
+                <Label Text="CW" Margin="8,0"/>
+                <Switch IsToggled="{Binding UseCW, Mode=TwoWay}"/>
+                <Label FlexLayout.Grow="1"/>
+                <Button Text="投稿" BackgroundColor="#03A9F4" Padding="24, 8" Margin="12, 8" FontSize="18" TextColor="#fafafa" FontAttributes="Bold" Command="{Binding Post}"/>
+            </FlexLayout>
+    </FlexLayout>
 
 </ContentPage>

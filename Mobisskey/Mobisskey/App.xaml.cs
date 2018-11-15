@@ -31,7 +31,7 @@ namespace Mobisskey
                 if (c != null)
                 {
                     Misskey.I.SwitchClient(c);
-                    await NavigationService.NavigateAsync("/MainPage/NavigationPage/MainDetailPage").ConfigureAwait(false);
+                    await NavigationService.NavigateAsync("/MainPage/NavigationPage/MainDetailPage");
                     return;
                 }
             }
@@ -42,6 +42,7 @@ namespace Mobisskey
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<NewNotePage, NewNotePageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<TimelinePage, TimelinePageViewModel>();

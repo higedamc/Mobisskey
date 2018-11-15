@@ -7,6 +7,9 @@
              NavigationPage.HasNavigationBar="false"
              
              x:Class="Mobisskey.Views.MainDetailPage">
+    <MasterDetailPage.ToolbarItems>
+        <ToolbarItem Text="十" Command="{Binding CreateNoteCommand}"/>
+    </MasterDetailPage.ToolbarItems>
     <bb:BottomBarPage.Children>
         <NavigationPage Title="タイムライン" Icon="s_home.png">
             <x:Arguments>

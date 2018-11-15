@@ -14,5 +14,11 @@ namespace Mobisskey.ViewModels
         public MainDetailPageViewModel(INavigationService navigationService) : base(navigationService)
         {
         }
+
+
+        public DelegateCommand CreateNoteCommand => new DelegateCommand(() =>
+        {
+            NavigationService.NavigateAsync("NewNotePage", null);
+        });
     }
 }
