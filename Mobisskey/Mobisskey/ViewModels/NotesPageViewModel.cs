@@ -20,7 +20,9 @@ namespace Mobisskey.ViewModels
         public NotesPageViewModel()
         {
             Notes = new ObservableCollection<NoteViewModel>();
-            OnRefreshAsync();
+            // 遅延読み込み
+            Observable.Timer(new TimeSpan(0, 0, 1))
+                      .Subscribe((_) => OnRefreshAsync());
         }
 
         private ObservableCollection<NoteViewModel> notes;

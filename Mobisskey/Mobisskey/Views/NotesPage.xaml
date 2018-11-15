@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:v="clr-namespace:Mobisskey.Views;assembly=Mobisskey"
              Title="{Binding Title}"
              x:Class="Mobisskey.Views.NotesPage">
     <ListView ItemsSource="{Binding Notes}" 
@@ -11,16 +12,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal" Padding="8">
-                        <Image Source="{Binding Icon}" x:Name="image" WidthRequest="64" HeightRequest="64" Margin="0,0,16,0"/>
-                        <StackLayout>
-                            <StackLayout Margin="0,0,0,4" Orientation="Horizontal">
-                                <Label Text="{Binding ScreenName}" FontSize="15" TextColor="Black"/>
-                                <Label Text="{Binding UserName}" FontSize="12" TextColor="Gray"/>
-                            </StackLayout>
-                            <Label Text="{Binding Text}" FontSize="13" TextColor="Black"/>
-                        </StackLayout>
-                    </StackLayout>
+                    <v:NoteView/>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
