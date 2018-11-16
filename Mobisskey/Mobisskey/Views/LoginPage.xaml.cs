@@ -7,11 +7,11 @@ using Xamarin.Forms;
 
 namespace Mobisskey.Views
 {
-    public partial class LoginPage : ContentPage
-    {
-        public LoginPage()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class LoginPage : ContentPage
+	{
+		public LoginPage()
+		{
+			InitializeComponent();
+		}
+	}
 }

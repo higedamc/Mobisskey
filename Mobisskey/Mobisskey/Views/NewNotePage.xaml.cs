@@ -1,10 +1,10 @@
-namespace Mobisskey.Views
+﻿namespace Mobisskey.Views
 {
-    public partial class NewNotePage
-    {
-        public NewNotePage()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class NewNotePage
+	{
+		public NewNotePage()
+		{
+			InitializeComponent();
+		}
+	}
 }

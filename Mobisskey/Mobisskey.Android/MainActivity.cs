@@ -7,29 +7,29 @@ using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
 
 namespace Mobisskey.Droid
 {
-    [Activity(Label = "Mobisskey", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
-    {
-        protected override void OnCreate(Bundle bundle)
-        {
-            TabLayoutResource = Resource.Layout.Tabbar;
-            ToolbarResource = Resource.Layout.Toolbar;
+	[Activity(Label = "Mobisskey", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+	{
+		protected override void OnCreate(Bundle bundle)
+		{
+			TabLayoutResource = Resource.Layout.Tabbar;
+			ToolbarResource = Resource.Layout.Toolbar;
 
-            base.OnCreate(bundle);
+			base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App(new AndroidInitializer()));
-            App.Current.On<Xamarin.Forms.PlatformConfiguration.Android>()
-            .UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
-        }
-    }
+			global::Xamarin.Forms.Forms.Init(this, bundle);
+			LoadApplication(new App(new AndroidInitializer()));
+			App.Current.On<Xamarin.Forms.PlatformConfiguration.Android>()
+			.UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
+		}
+	}
 
-    public class AndroidInitializer : IPlatformInitializer
-    {
-        public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
-            // Register any platform specific implementations
-        }
-    }
+	public class AndroidInitializer : IPlatformInitializer
+	{
+		public void RegisterTypes(IContainerRegistry containerRegistry)
+		{
+			// Register any platform specific implementations
+		}
+	}
 }
 

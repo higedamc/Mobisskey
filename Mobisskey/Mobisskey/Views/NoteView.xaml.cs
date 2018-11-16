@@ -2,11 +2,11 @@
 
 namespace Mobisskey.Views
 {
-    public partial class NoteView : StackLayout
-    {
-        public NoteView()
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class NoteView : StackLayout
+	{
+		public NoteView()
+		{
+			InitializeComponent();
+		}
+	}
 }

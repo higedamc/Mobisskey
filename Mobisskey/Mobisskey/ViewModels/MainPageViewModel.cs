@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,36 +12,36 @@ using System.Collections.ObjectModel;
 
 namespace Mobisskey.ViewModels
 {
-    public class MainPageViewModel : ViewModelBase
-    {
-        public ObservableCollection<MenuViewModel> Menu { get; } = new ObservableCollection<MenuViewModel>
-        {
+	public class MainPageViewModel : ViewModelBase
+	{
+		public ObservableCollection<MenuViewModel> Menu { get; } = new ObservableCollection<MenuViewModel>
+		{
 
-        };
+		};
 
-        public MainPageViewModel(INavigationService navigationService) : base(navigationService)
-        {
+		public MainPageViewModel(INavigationService navigationService) : base(navigationService)
+		{
 
-        }
+		}
 
-        public DelegateCommand<MenuViewModel> ItemSelectedCommand => new DelegateCommand<MenuViewModel>((mvm) => 
-        {
-            NavigationService.NavigateAsync($"{mvm.ViewName}");
-        });
+		public DelegateCommand<MenuViewModel> ItemSelectedCommand => new DelegateCommand<MenuViewModel>((mvm) => 
+		{
+			NavigationService.NavigateAsync($"{mvm.ViewName}");
+		});
 
-    }
+	}
 
-    public class MenuViewModel : BindableBase
-    {
-        public string Title { get; set; }
-        public ImageSource Icon { get; set; }
-        public string ViewName { get; set; }
+	public class MenuViewModel : BindableBase
+	{
+		public string Title { get; set; }
+		public ImageSource Icon { get; set; }
+		public string ViewName { get; set; }
 
-        public MenuViewModel(string title, ImageSource icon, string viewName)
-        {
-            Title = title;
-            Icon = icon;
-            ViewName = viewName;
-        }
-    }
+		public MenuViewModel(string title, ImageSource icon, string viewName)
+		{
+			Title = title;
+			Icon = icon;
+			ViewName = viewName;
+		}
+	}
 }
