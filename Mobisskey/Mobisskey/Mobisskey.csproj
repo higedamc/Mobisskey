@@ -25,6 +25,7 @@
   <ItemGroup>
 	<Folder Include="Models\" />
 	<Folder Include="Behaviors\" />
+	<Folder Include="ViewModels\Timeline\" />
   </ItemGroup>
   <ItemGroup>
 	<Compile Remove="ViewModels\PrismMasterDetailPageViewModel.cs" />
