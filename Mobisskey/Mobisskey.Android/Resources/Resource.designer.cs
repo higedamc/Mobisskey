@@ -3224,6 +3224,8 @@ namespace Mobisskey.Droid
 			global::BottomNavigationBar.Resource.Styleable.ViewStubCompat_android_id = global::Mobisskey.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::BottomNavigationBar.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Mobisskey.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::BottomNavigationBar.Resource.Styleable.ViewStubCompat_android_layout = global::Mobisskey.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Reactive.Bindings.Resource.String.ApplicationName = global::Mobisskey.Droid.Resource.String.ApplicationName;
+			global::Reactive.Bindings.Resource.String.Hello = global::Mobisskey.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Mobisskey.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -7238,6 +7240,12 @@ namespace Mobisskey.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f0a003d
+			public const int ApplicationName = 2131361853;
+			
+			// aapt resource value: 0x7f0a003c
+			public const int Hello = 2131361852;
+			
 			// aapt resource value: 0x7f0a0015
 			public const int abc_action_bar_home_description = 2131361813;
 			
@@ -7325,8 +7333,8 @@ namespace Mobisskey.Droid
 			// aapt resource value: 0x7f0a0025
 			public const int abc_toolbar_collapse_description = 2131361829;
 			
-			// aapt resource value: 0x7f0a003c
-			public const int app_name = 2131361852;
+			// aapt resource value: 0x7f0a003e
+			public const int app_name = 2131361854;
 			
 			// aapt resource value: 0x7f0a0033
 			public const int appbar_scrolling_view_behavior = 2131361843;
@@ -7337,8 +7345,8 @@ namespace Mobisskey.Droid
 			// aapt resource value: 0x7f0a0035
 			public const int character_counter_pattern = 2131361845;
 			
-			// aapt resource value: 0x7f0a003d
-			public const int library_name = 2131361853;
+			// aapt resource value: 0x7f0a003f
+			public const int library_name = 2131361855;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int mr_button_content_description = 2131361792;
