@@ -9,19 +9,26 @@ using Prism.Services;
 using Xamarin.Forms;
 using Prism.Mvvm;
 using System.Collections.ObjectModel;
+using Mobisskey.Models;
 
 namespace Mobisskey.ViewModels
 {
 	public class MainPageViewModel : ViewModelBase
 	{
-		public ObservableCollection<MenuViewModel> Menu { get; } = new ObservableCollection<MenuViewModel>
+		public ObservableCollection<string> MenuItems { get; } = new ObservableCollection<string>
 		{
-
+			"プロフィール",
+			"ドライブ",
+			"お気に入り",
+			"リスト",
+			"フォロー申請",
+			"ゲーム",
+			"設定",
 		};
 
 		public MainPageViewModel(INavigationService navigationService) : base(navigationService)
 		{
-
+			Title = "Menu";
 		}
 
 		public DelegateCommand<MenuViewModel> ItemSelectedCommand => new DelegateCommand<MenuViewModel>((mvm) => 
