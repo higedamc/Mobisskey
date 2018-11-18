@@ -8,12 +8,12 @@
 			  RefreshCommand="{Binding RefreshCommand}"
 			  IsPullToRefreshEnabled="true"
 			  HasUnevenRows="true"
+			  CachingStrategy="RecycleElementAndDataTemplate"
 			  IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
 		<ListView.ItemTemplate>
 			<DataTemplate>
 				<ViewCell>
 					<v:NoteView/>
-					
 				</ViewCell>
 			</DataTemplate>
 		</ListView.ItemTemplate>
