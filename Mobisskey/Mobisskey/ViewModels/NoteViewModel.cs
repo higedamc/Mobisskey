@@ -83,8 +83,9 @@ namespace Mobisskey.ViewModels
 			}
 			UserName = "@" + model.User.Username + (model.User.Host != null ? "@" + model.User.Host : "");
 			// 表示名未指定のときはnullらしい
-			Icon = ImageSource.FromUri(new Uri(note.User.AvatarUrl));
 			ScreenName = model.User.Name ?? model.User.Username;
+
+			SetIconAsync();
 
 			Text = model.Text;
 			Reactions = new ObservableCollection<ReactionViewModel>
@@ -101,14 +102,12 @@ namespace Mobisskey.ViewModels
 				{ this, Reaction.Pudding, model.MyReaction, model.ReactionCounts?.Pudding ?? 0 },
 			};
 			Console.WriteLine("test");
+		}
 
+		async Task SetIconAsync()
 		{
-				IsRenote = true;
-				RenoteUserName = ScreenName;
-				UserName = "@" + r.User.Username + (r.User.Host != null ? "@" + r.User.Host : "");
-				ScreenName = r.User.Name ?? r.User.Username;
-				Icon = ImageSource.FromUri(new Uri(r.User.AvatarUrl));
-				Text = r.Text;
+			Icon = ImageSource.FromFile(await ImageCache.I.DownloadFileAsync(model.User.AvatarUrl, model.User.Id));
+		}
 
 		/// <summary>
 		/// リアクションをトグルします。
