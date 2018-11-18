@@ -1,22 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StackLayout xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobisskey.Views.NoteView"
-             Padding="8"
-             Orientation="Horizontal">
-    <Image Source="{Binding Icon}" x:Name="image" WidthRequest="64" HeightRequest="64" Margin="0,0,16,0"/>
-    <StackLayout>
-        <Label IsVisible="{Binding IsRenote}">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="♺ " TextColor="#4CAF50"/>
-                    <Span Text="{Binding RenoteUserName}" FontAttributes="Bold" FontSize="16"/>
-                    <Span Text=" さんがRenote" FontSize="14"/>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <StackLayout Margin="0,0,0,4" Orientation="Horizontal">
-            <Label Text="{Binding ScreenName}" FontSize="15" TextColor="Black"/>
-            <Label Text="{Binding UserName}" FontSize="12" TextColor="Gray"/>
-        </StackLayout>
-        <Label Text="{Binding Text}" FontSize="13" TextColor="Black"/>
-    </StackLayout>
+             xmlns:v="clr-namespace:Mobisskey.Views;assembly=Mobisskey"
+			 Padding="8">
+	<Label Margin="32, 0, 0, 8" LineHeight="1.5" IsVisible="{Binding IsRenote}">
+		<Label.FormattedText>
+			<FormattedString>
+				<Span Text="♺ " TextColor="#4CAF50" FontSize="13"/>
+				<Span Text="{Binding RenoteUserName}" FontSize="13" TextColor="#9E9E9E"/>
+				<Span Text=" さんがRenote" FontSize="11" TextColor="#9E9E9E"/>
+			</FormattedString>
+		</Label.FormattedText>
+		
+	</Label>
+	<StackLayout Orientation="Horizontal">
+		<Frame WidthRequest="48" HeightRequest="48" MinimumWidthRequest="48" MinimumHeightRequest="48" Padding="0" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="24" IsClippedToBounds="true" Margin="0,0,8,0">	
+			<Image Source="{Binding Icon}" Aspect="Fill"/>
+		</Frame>
+		<StackLayout>
+			<StackLayout Margin="0,0,0,4" Orientation="Horizontal">
+				<Label Text="{Binding ScreenName}" FontSize="15" TextColor="#616161" VerticalTextAlignment="End"/>
+				<Label Text="{Binding UserName}" FontSize="12" TextColor="#9E9E9E" VerticalTextAlignment="End"/>
+			</StackLayout>
+			<Label Text="{Binding Text}" FontSize="13" TextColor="#212121"/>
+	
+			<v:ItemsControl ItemsSource="{Binding Reactions}">
+				<v:ItemsControl.ItemsLayout>
+					<FlexLayout Direction="Row" Wrap="Wrap"/>
+				</v:ItemsControl.ItemsLayout>
+				<v:ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Frame Padding="4" VerticalOptions="Start" HasShadow="false" BackgroundColor="{Binding Background.Value}">
+							<Frame.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding ToggleReaction}"/>
+							</Frame.GestureRecognizers>
+							<Label Text="{Binding Display.Value}"/>
+						</Frame>
+					</DataTemplate>
+				</v:ItemsControl.ItemTemplate>
+			</v:ItemsControl>
+		</StackLayout>
+	</StackLayout>
 </StackLayout>
