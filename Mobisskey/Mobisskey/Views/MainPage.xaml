@@ -1,10 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mobisskey.Views.MainPage">
 	<MasterDetailPage.Master>
-		<ContentPage Title="Test">
-			<StackLayout>
-				<Button Text="Test"/>
-			</StackLayout>
+		<ContentPage Title="Menu">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="240"/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+				<BoxView Grid.Row="0" BackgroundColor="Teal"/>
+				<ListView ItemsSource="{Binding MenuItems}" Grid.Row="1"/>
+			</Grid>
 		</ContentPage>
 	</MasterDetailPage.Master>
 </MasterDetailPage>
