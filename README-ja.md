@@ -1,5 +1,7 @@
 # Mobisskey
 
+[English](README.md) :: 日本語
+
 Mobisskey は、iOSとAndroid用にネイティブアプリとして動作するMisskeyクライアントです。
 
 ## コントリビュート
