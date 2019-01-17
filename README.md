@@ -1,5 +1,7 @@
 # Mobisskey
 
+English :: [日本語](README-ja.md)
+
 Mobisskey is a native misskey client for iOS and Android.
 
 ## Contributing
